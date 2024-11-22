@@ -7,5 +7,4 @@ services:
     startCommand: gunicorn app:app --workers 4 --threads 8 --timeout 0
     plan: free  # Use "starter" for paid plans
     envVars:
-    healthCheckPath: /predict
     autoDeploy: true  

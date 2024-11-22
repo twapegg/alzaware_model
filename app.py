@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 import torch
 import torch.nn as nn
@@ -116,9 +117,10 @@ def predict():
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Failed to fetch image from URL: {e}"}), 400
 
+port = int(os.environ.get("PORT", 5000))
 if __name__ == '__main__':
     # Configure logging to see the output
     logging.basicConfig(level=logging.DEBUG)
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0', port=port)
 
 
