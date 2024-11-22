@@ -3,3 +3,4 @@ torch==2.0.1
 torchvision==0.15.2
 Pillow==10.0.0
 requests==2.31.0
+gunicorn==20.1.0
