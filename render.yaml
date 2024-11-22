@@ -1,0 +1,13 @@
+services:
+  - name: AlzAware_API
+    type: web
+    env: python
+    region: singapore 
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 4 --threads 8 --timeout 0
+    plan: free  # Use "starter" for paid plans
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    healthCheckPath: /health  # A route in your app to confirm it’s running
+    autoDeploy: true  # Automatically deploy on new commits
