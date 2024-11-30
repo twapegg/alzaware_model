@@ -70,7 +70,15 @@ def preprocess_image(image):
     ])
     return transform(image)
 
+# Route for health check/wakeup
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({
+        "status": "success",
+        "message": "Server is running"
+    }), 200
 
+# Route for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get the image URL from the request
