@@ -109,7 +109,6 @@ def predict():
         
         # Return the predicted class label and probability
         return jsonify({
-            "predicted_label": predicted_class_idx,
             "predicted_class": predicted_label,
             "probability": probabilities[0][predicted_class_idx].item()
         })
